@@ -5,27 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 23:31:26 by ykirigay          #+#    #+#             */
-/*   Updated: 2020/02/07 23:31:29 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/10 18:59:33 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/10 18:59:36 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-static int		revert_map(t_game *game, t_place *place, int w, int h)
+static int		revert_map(t_game *game, t_piece *piece, int w, int h)
 {
 	int		i;
 	int		j;
 
 	j = 0;
-	w = (h > 0 ? place->width - 1 : w);
+	w = (h > 0 ? piece->width - 1 : w);
 	while (j <= h)
 	{
 		i = 0;
-		if (i <= w)
+		while (i <= w)
 		{
-			if (game->map[place->y + j][place->x + i] == place->letter)
-				game->map[place->y + j][place->x + i] = CEMPTY;
+			if (game->map[piece->y + j][piece->x + i] == piece->letter)
+				game->map[piece->y + j][piece->x + i] = CEMPTY;
 			i++;
 		}
 		j++;
@@ -33,7 +33,7 @@ static int		revert_map(t_game *game, t_place *place, int w, int h)
 	return (0);
 }
 
-static int		add_to_map(t_game *game, t_place *place)
+static int		add_to_map(t_game *game, t_piece *piece)
 {
 	int		i;
 	int		j;
@@ -41,28 +41,28 @@ static int		add_to_map(t_game *game, t_place *place)
 
 	j = 0;
 	start = 1;
-	if (game->map[place->y][place->x] != CEMPTY && place->map[0][0] != CEMPTY)
+	if (game->map[piece->y][piece->x] != CEMPTY && piece->map[0][0] != CEMPTY)
 		return (0);
-	while (start && j < place->height)
+	while (start && j < piece->height)
 	{
 		i = 0;
-		while (start && i < place->width)
+		while (start && i < piece->width)
 		{
-			if (game->map[place->y + j][place->x + i] != CEMPTY
-					&& place->map[j][i] != CEMPTY)
+			if (game->map[piece->y + j][piece->x + i] != CEMPTY
+					&& piece->map[j][i] != CEMPTY)
 				start = 0;
-			else if (game->map[place->y + j][place->x + i] == CEMPTY)
-				game->map[place->y + j][place->x + i] = place->map[j][i];
+			else if (game->map[piece->y + j][piece->x + i] == CEMPTY)
+				game->map[piece->y + j][piece->x + i] = piece->map[j][i];
 			i = (start) ? i + 1 : i;
 		}
 		j = (start) ? j + 1 : j;
 	}
 	if (start)
 		return (1);
-	return (revert_map(game, place, i, j));
+	return (revert_map(game, piece, i, j));
 }
 
-static int		check_awnser(t_game *game, t_place *pc)
+static int		check_awnser(t_game *game, t_piece *pc)
 {
 	if (!pc)
 		return (1);

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 23:31:43 by ykirigay          #+#    #+#             */
-/*   Updated: 2020/02/07 23:31:46 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/10 18:59:51 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/10 18:59:54 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-static t_coord		get_coords(char *buf)
+static t_coord		get_coords(const char *buf)
 {
 	t_coord		coord;
 	int			index;
@@ -40,14 +40,14 @@ static t_coord		get_coords(char *buf)
 	return (coord);
 }
 
-static t_place		*init_place(char *buf)
+static t_piece		*init_piece(char *buf)
 {
-	t_place		*new;
+	t_piece		*new;
 	t_coord		pts;
 	int			i;
 	static char	c = 'A';
 
-	if (!(new = ft_memalloc(sizeof(t_place))))
+	if (!(new = ft_memalloc(sizeof(t_piece))))
 		dp_error(2);
 	new->x = 0;
 	new->y = 0;
@@ -70,8 +70,8 @@ static t_place		*init_place(char *buf)
 
 void				store_block(t_game *game, char *buf)
 {
-	t_place		*new;
+	t_piece		*new;
 
-	new = init_place(buf);
+	new = init_piece(buf);
 	pushback_place(game, new);
 }

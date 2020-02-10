@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 23:31:12 by ykirigay          #+#    #+#             */
-/*   Updated: 2020/02/07 23:31:15 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/10 18:59:04 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/10 18:59:08 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
 char			*buf_to_piece(char const *s, unsigned int start,
-		size_t len, char l)
+				size_t len, char l)
 {
 	char			*res;
 	unsigned int	index;
@@ -56,7 +56,7 @@ static int		set_map(t_game *game, int size)
 	{
 		if (!(game->map[i] = (char *)malloc(size * sizeof(char))))
 			return (0);
-		ft_memset(game->map[i++], CEMPTY, size);
+		ft_memset(game->map[i++], CEMPTY, (size_t)size);
 	}
 	return (1);
 }

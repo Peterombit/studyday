@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 23:30:59 by ykirigay          #+#    #+#             */
-/*   Updated: 2020/02/07 23:31:02 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/10 18:58:28 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/10 18:58:47 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,20 @@ void			put_map(t_game *game)
 	}
 }
 
-void			pushback_place(t_game *game, t_place *place)
+void			pushback_place(t_game *game, t_piece *piece)
 {
-	t_place		*lst;
+	t_piece		*lst;
 
 	lst = game->pieces;
 	if (!lst)
 	{
-		game->pieces = place;
+		game->pieces = piece;
 		game->nb_pieces++;
 		return ;
 	}
 	while (lst->next)
 		lst = lst->next;
-	lst->next = place;
+	lst->next = piece;
 	game->nb_pieces++;
 }
 

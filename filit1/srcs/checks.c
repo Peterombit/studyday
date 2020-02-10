@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 23:30:29 by ykirigay          #+#    #+#             */
-/*   Updated: 2020/02/07 23:30:33 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/10 18:58:08 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/10 18:58:11 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,10 @@ int				loop_files(t_game *game, char *file)
 	int		last_ret;
 	char	buf[22];
 
-	ret = 0;
 	last_ret = 0;
 	if ((fd = open(file, O_RDONLY)) < 0)
 		dp_error(2);
-	while ((ret = read(fd, buf, 21)) > 0)
+	while ((ret = (int)read(fd, buf, 21)) > 0)
 	{
 		last_ret = ret;
 		buf[ret] = '\0';

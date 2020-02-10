@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 23:30:42 by ykirigay          #+#    #+#             */
-/*   Updated: 2020/02/07 23:30:47 by ykirigay         ###   ########.fr       */
+/*   Created: 2019/11/10 02:40:40 by ykirigay          #+#    #+#             */
+/*   Updated: 2019/11/10 03:44:53 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "libft.h"
 
-void	dp_error(int c)
+void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	if (c == 1)
-		ft_putstr_fd(ERR1, 1);
-	else if (c == 2)
-		ft_putstr_fd(ERR2, 1);
-	exit(1);
+	while (lst)
+	{
+		f(lst);
+		lst = lst->next;
+	}
 }

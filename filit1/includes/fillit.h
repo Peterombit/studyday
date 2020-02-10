@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 23:28:49 by ykirigay          #+#    #+#             */
-/*   Updated: 2020/02/07 23:28:52 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/10 18:57:34 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/10 18:57:41 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include "../libft/libft.h"
 # include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <errno.h>
 
 # define CBLOCK '#'
 # define CEMPTY '.'
@@ -33,7 +30,7 @@ typedef	struct		s_coord
 	int				l;
 }					t_coord;
 
-typedef	struct		s_place
+typedef	struct		s_piece
 {
 	int				x;
 	int				y;
@@ -41,12 +38,12 @@ typedef	struct		s_place
 	int				height;
 	char			**map;
 	char			letter;
-	struct s_place	*next;
-}					t_place;
+	struct s_piece	*next;
+}					t_piece;
 
 typedef	struct		s_game
 {
-	t_place			*pieces;
+	t_piece			*pieces;
 	int				nb_pieces;
 	int				size;
 	char			**map;
@@ -55,11 +52,11 @@ typedef	struct		s_game
 int					loop_files(t_game *game, char *file);
 void				dp_error(int c);
 void				put_map(t_game *game);
-void				pushback_place(t_game *game, t_place *place);
+void				pushback_place(t_game *game, t_piece *piece);
 int					init_game(t_game *game, char *file);
 void				solve(t_game *game);
+void				store_block(t_game *game, char *buf);
 char				*buf_to_piece(char const *s, unsigned int start,
 		size_t len, char l);
-void				store_block(t_game *game, char *buf);
 
 #endif
