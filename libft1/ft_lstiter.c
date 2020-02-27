@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 02:40:40 by ykirigay          #+#    #+#             */
-/*   Updated: 2019/11/10 03:44:53 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/27 17:14:30 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/27 17:14:34 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
 	while (lst)
 	{

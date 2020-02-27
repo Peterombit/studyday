@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 02:17:17 by ykirigay          #+#    #+#             */
-/*   Updated: 2019/11/10 03:49:26 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/27 17:16:36 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/27 17:16:40 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstnew(void const *content, size_t content_size)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	t_list	*list;
+	t_list		*list;
 
-	if (!(list = (t_list*)malloc(sizeof(*list))))
+	if (!(list = (t_list *)malloc(sizeof(*list))))
 		return (NULL);
 	if (!content)
 	{

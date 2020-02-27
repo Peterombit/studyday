@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 02:35:00 by ykirigay          #+#    #+#             */
-/*   Updated: 2019/11/20 22:13:36 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/27 17:12:03 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/27 17:12:08 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstadd(t_list **alst, t_list *new)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
 	if (alst != NULL && new != NULL)
 	{

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykirigay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 02:42:27 by ykirigay          #+#    #+#             */
-/*   Updated: 2019/11/10 04:12:29 by ykirigay         ###   ########.fr       */
+/*   Created: 2020/02/27 17:15:50 by ykirigay          #+#    #+#             */
+/*   Updated: 2020/02/27 17:15:57 by ykirigay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*new;
-	t_list	*list;
+	t_list		*new;
+	t_list		*list;
 
 	if (!lst)
 		return (NULL);
